@@ -11,10 +11,10 @@
 <body>
 <?php
 
-echo("Как дела? да" );
+echo("Добро пожаловать!" );
 ?>
 <form name="Nam" action="test.php" method="POST">
-     Введите Свое имя <input name="First" />
+     Введите Свое имя <input name="First" /> + Введите Второе имя <input name="Second" />
      <input type="submit" name="Send" value="Найти" />
 </form>
 
