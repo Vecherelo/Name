@@ -6,18 +6,27 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>Hello!</title>
+  <style type="text/css">
+.hd {
+		text-align: center;
+	}
+  </style>
+
 </head>
 
 <body>
 <?php
 
-echo("Добро пожаловать!" );
+echo("<p class=hd > Добро пожаловать! <br>
+	Здесь Вы можете проверить совметимость имен и буковок!<br>
+	ver 0.1 beta <br>" );
+
 ?>
 <form name="Nam" action="test.php" method="POST">
      Введите Свое имя <input name="First" /> + Введите Второе имя <input name="Second" />
      <input type="submit" name="Send" value="Найти" />
 </form>
-
+</p>
 
 </body>
 

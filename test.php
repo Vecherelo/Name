@@ -7,33 +7,41 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>Love</title>
+    <style type="text/css">
+.hd {
+		text-align: center;
+		font-size: 14pt;
+		margin-top: 20%;
+	}
+  </style>
 </head>
 
 <body>
+<p class=hd>
 <?php
 
 $a=$_POST['First'];
 $b=$_POST['Second'];
-echo("оООООООо да   " );
-print "$a - $b";
+
+print "$a + $b";
 function calc($a,$b)
 {   
-	setlocale(LC_CTYPE, "ru_RU.UTF-8");
+	//setlocale(LC_CTYPE, "ru_RU.UTF-8");
 	mb_internal_encoding("UTF-8");
 	$first = mb_strtoupper($a);
 	$firstlength = mb_strlen($a);
 
 		$second = mb_strtoupper($b);
 	$secondlength = mb_strlen($b);
-    print "Имя 1 -$first";
+    //print "Имя 1 -$first";
 	 
 
 	$LoveCount = 0;
 	//print "<br>длина $firstlength<br>";
-	print "Имя 2 -$second";
+	//print "Имя 2 -$second";
 	for ($i=0; $i < $firstlength; $i++) { 
-	 	$sym = $first[$i];
-	 	print "$sym + ";
+	 	$sym =mb_substr($first, $i, 1);
+	 	//print "$sym + ";
 	 	if ($sym =='А') $LoveCount+=5;
 	 	if ($sym =='Б') $LoveCount+=5;
 	 	if ($sym =='И') $LoveCount+=5;
@@ -57,8 +65,8 @@ function calc($a,$b)
 	 } 
 	 //second for
 	 for ($i=0; $i < $secondlength; $i++) { 
-	 	$sym = $second[$i];
-	 	print "-$sym - $second[$i] + ";
+	 	$sym =mb_substr($second, $i, 1);
+	 	//print "-$sym + ";
 	 	if ($sym =='А') $LoveCount+=5;
 	 	if ($sym =='Б') $LoveCount+=5;
 	 	if ($sym =='И') $LoveCount+=5;
@@ -82,6 +90,9 @@ function calc($a,$b)
 	 } 
 
 $amount=0;
+//print "LC = $LoveCount<br>";
+//print "FR = $firstlength<br>";
+//print "SL = $secondlength<br>";
 if ($LoveCount>0) $amount=  10-(($firstlength+$secondlength)/2);
 if ($LoveCount>2) $amount= 15-(($firstlength+$secondlength)/2);
 if ($LoveCount>4) $amount= 20-(($firstlength+$secondlength)/2);
@@ -105,7 +116,8 @@ if ($firstlength==0 || $secondlength==0) $amount= "Err";
 if ($amount < 0) $amount= 0;
 if ($amount >100) $amount=100;
 
-print "Число $amount";
+print " = $amount%";
+print ("<br> <br><br><br><a href='index.php' style='text-decoration:none;color:green;'>ЕЩЕ раз</a>");
 }
 
 calc($a,$b);
