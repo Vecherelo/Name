@@ -8,7 +8,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>Love</title>
     <style type="text/css">
-.hd {
+.result {
 		text-align: center;
 		font-size: 14pt;
 		margin-top: 20%;
@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<p class=hd>
+<p class=result>
 <?php
 
 $a=$_POST['First'];
@@ -26,22 +26,18 @@ $b=$_POST['Second'];
 print "$a + $b";
 function calc($a,$b)
 {   
-	//setlocale(LC_CTYPE, "ru_RU.UTF-8");
+	
 	mb_internal_encoding("UTF-8");
 	$first = mb_strtoupper($a);
 	$firstlength = mb_strlen($a);
 
 		$second = mb_strtoupper($b);
-	$secondlength = mb_strlen($b);
-    //print "Имя 1 -$first";
-	 
+	$secondlength = mb_strlen($b); 
 
 	$LoveCount = 0;
-	//print "<br>длина $firstlength<br>";
-	//print "Имя 2 -$second";
+	
 	for ($i=0; $i < $firstlength; $i++) { 
 	 	$sym =mb_substr($first, $i, 1);
-	 	//print "$sym + ";
 	 	if ($sym =='А') $LoveCount+=5;
 	 	if ($sym =='Б') $LoveCount+=5;
 	 	if ($sym =='И') $LoveCount+=5;
@@ -63,10 +59,10 @@ function calc($a,$b)
         if ($sym =='O') $LoveCount+=5;
         if ($sym =='X') $LoveCount+=5;
 	 } 
-	 //second for
+	 //second for()
 	 for ($i=0; $i < $secondlength; $i++) { 
 	 	$sym =mb_substr($second, $i, 1);
-	 	//print "-$sym + ";
+	 	
 	 	if ($sym =='А') $LoveCount+=5;
 	 	if ($sym =='Б') $LoveCount+=5;
 	 	if ($sym =='И') $LoveCount+=5;
@@ -90,9 +86,7 @@ function calc($a,$b)
 	 } 
 
 $amount=0;
-//print "LC = $LoveCount<br>";
-//print "FR = $firstlength<br>";
-//print "SL = $secondlength<br>";
+//считаем
 if ($LoveCount>0) $amount=  10-(($firstlength+$secondlength)/2);
 if ($LoveCount>2) $amount= 15-(($firstlength+$secondlength)/2);
 if ($LoveCount>4) $amount= 20-(($firstlength+$secondlength)/2);
